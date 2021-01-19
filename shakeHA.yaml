@@ -1,0 +1,23 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  broker: 127.0.0.1
+  username: mqtt
+  password: pzm460
+
+sensor:
+  - platform: mqtt
+    name: "Pishake"
+    state_topic: "home-assistant/pishake/Z"
+    unit_of_measurement: "units"
