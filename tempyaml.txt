@@ -1,0 +1,70 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+mqtt:
+  broker: 127.0.0.1
+  username: mqtt
+  password: pzm460
+
+sensor:
+  - platform: mqtt
+    name: "Lottery"
+    state_topic: "home-assistant/lottery/number"
+    unit_of_measurement: "No."
+  - platform: mqtt
+    name: "Pishake"
+    state_topic: "home-assistant/pishake/Z"
+    unit_of_measurement: "units"
+
+#streamlabswater:
+ # api_key: NmE54rWL_Nbn3z4RStrot0W_Vk0CZQCGunmoIEFnWwGbdncIDAXB0A
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: pzm460
+  max_retries: 3
+  default_measurement: state
+  
+#influxdb:
+ # api_version: 2
+  #host: https://www.sensorweb.us
+  #port: 8086
+  #database: shake
+  #username: test
+  #password: sensorweb
+  #ssl: true
+  #verify_ssl: true
+  #max_retries: 3
+  #token: GENERATED_AUTH_TOKEN
+  #organization: RANDOM_16_DIGIT_HEX_ID
+  #bucket: BUCKET_NAME
+  #tags:
+   # source: HA
+  #default_measurement: units
+  #exclude:
+   # entities:
+    #  - zone.home
+  #include:
+    #domains:
+     # - sensor
+     # - binary_sensor
+      #- sun
+    #entities:
+   #   - weather.home
+  #    - sensor.pishake
+    #tags:
+    #location: room1
+  
