@@ -13,8 +13,8 @@ scene: !include scenes.yaml
 
 mqtt:
   broker: 127.0.0.1
-  username: mqtt
-  password: pzm460
+  username: user
+  password: password
 
 sensor:
   - platform: mqtt
