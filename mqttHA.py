@@ -17,7 +17,7 @@ with open('/opt/settings/sys/ip.txt', 'r') as file:
     host = file.read().strip()
 
 client = mqtt.Client("ha-client")
-client.username_pw_set('mqtt', 'pzm460')
+client.username_pw_set('user', 'password')
 client.connect(broker)
 client.loop_start()
 
